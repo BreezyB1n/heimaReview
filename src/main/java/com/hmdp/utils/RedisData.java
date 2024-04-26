@@ -5,7 +5,8 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class RedisData {
+public class RedisData<T> {
     private LocalDateTime expireTime;
-    private Object data;
+    // 接收想要加入的对象
+    private T data;
 }

@@ -16,8 +16,8 @@ import javax.annotation.Resource;
  * 前端控制器
  * </p>
  *
- * @author 虎哥
- * @since 2021-12-22
+ * @author B1n_
+ * @since 2024-4-24
  */
 @RestController
 @RequestMapping("/shop")
@@ -33,6 +33,7 @@ public class ShopController {
      */
     @GetMapping("/{id}")
     public Result queryShopById(@PathVariable("id") Long id) {
+
         return shopService.queryById(id);
     }
 
@@ -76,6 +77,7 @@ public class ShopController {
         Page<Shop> page = shopService.query()
                 .eq("type_id", typeId)
                 .page(new Page<>(current, SystemConstants.DEFAULT_PAGE_SIZE));
+
         // 返回数据
         return Result.ok(page.getRecords());
     }
